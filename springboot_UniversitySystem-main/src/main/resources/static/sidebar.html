@@ -1,0 +1,53 @@
+<div class="sidebar_title">
+    <img src="/img/nuist-logo.png" alt="nuist-logo">
+    <h1>Student Management System</h1>
+</div>
+<span style="display: none;" id="sidebarNavisActive" th:text="${sidebarNav}"></span>
+<ul class="nav-links">
+    <li class="nav-link side-show-hide-btn">
+        <a href="#" onclick="return false" id="hide-sidebar"><i class='bx bxs-arrow-to-left'></i></i> Hide
+            Sidebar</a>
+    </li>
+    <li class="nav-link">
+        <hr class="sparator">
+    </li>
+    <li class="nav-link">
+        <a href="/admin/dashboard" class=""><i class='bx bxs-dashboard'></i><span class="navLabel" > Dashboard</span></a>
+    </li>
+    <li class="nav-link">
+        <a href="/admin/student" class=""><i class='bx bxs-user'></i><span class="navLabel"> Student</span></a>
+    </li>
+    <li class="nav-link">
+        <a href="/admin/course" class=""><i class='bx bxs-book'></i><span class="navLabel"> Courses</span></a>
+    </li>
+    <li class="nav-link">
+        <a href="/admin/student/absenteeism/" class=""><i class='bx bxs-book-content'></i><span class="navLabel">  Enrollment</span></a>
+    </li>
+    <li class="nav-link">
+        <a href="/admin/teacher" class=""><i class='bx bxs-user-rectangle'></i><span class="navLabel"> Teacher</span></a>
+    </li>
+    <li class="nav-link">
+        <a href="#" class=""><i class='bx bxs-school'></i><span class="navLabel"> School</span></a>
+    </li>
+    <li class="nav-link">
+        <hr class="sparator">
+    </li>
+</ul>
+<footer class="sidebar-footer">
+    <p>
+         2023 TEK-UP &copy;
+        
+    </p>
+</footer>
+
+<script>
+    $(document).ready(function () {
+        var sidebarNavisActive = $('#sidebarNavisActive').text();
+        $('.nav-links a').each(function () {
+            var $this = $(this);
+            if ($this.attr('href') === sidebarNavisActive) {
+                $this.addClass('active');
+            }
+        });
+    });
+</script>
