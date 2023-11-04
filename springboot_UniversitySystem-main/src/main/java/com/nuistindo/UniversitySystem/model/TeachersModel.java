@@ -1,6 +1,9 @@
 package com.nuistindo.UniversitySystem.model;
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +15,8 @@ public class TeachersModel {
     String name;
     String expertise;
     String password;
+    @OneToMany(mappedBy = "teacher_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CoursesModel> coursesTaught = new ArrayList<>();
 
     public String getId() {
         return id;

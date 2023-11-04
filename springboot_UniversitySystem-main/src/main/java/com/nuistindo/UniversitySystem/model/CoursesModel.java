@@ -16,7 +16,9 @@ public class CoursesModel {
 
     private String faculty;
 
-    private String teacher_id;
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private TeachersModel teacher_id;
 
     public String getId() {
         return id;
@@ -42,15 +44,16 @@ public class CoursesModel {
         this.faculty = faculty;
     }
 
-    public String getTeacher_id() {
-        return teacher_id;
-    }
+   
+    public TeachersModel getTeacher_id() {
+		return teacher_id;
+	}
 
-    public void setTeacher_id(String teacher_id) {
-        this.teacher_id = teacher_id;
-    }
+	public void setTeacher_id(TeachersModel teacher_id) {
+		this.teacher_id = teacher_id;
+	}
 
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

@@ -1,6 +1,9 @@
 package com.nuistindo.UniversitySystem.model;
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +20,9 @@ public class StudentsModel {
 
     private Boolean isAbsent;
     
+    @OneToMany(mappedBy = "student_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<EnrollmentsModel> enrollments = new ArrayList<>();
+
     public String getId() {
         return id;
     }
