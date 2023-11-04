@@ -83,7 +83,9 @@ public class StudentsServiceImpl implements StudentsService{
         
     }
 
-
+    public List<StudentsModel> getAllStudents() {
+        return studentsRepository.findAll();
+    }
 	
 
 }

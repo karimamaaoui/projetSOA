@@ -11,4 +11,8 @@ public interface UsersService {
 
     void deleteUser(Integer id);
 
-}
+    
+    boolean authenticateUser(String username, String password) ;
+       
+    
+    }

@@ -2,6 +2,9 @@ package com.nuistindo.UniversitySystem.service;
 
 import com.nuistindo.UniversitySystem.model.UsersModel;
 import com.nuistindo.UniversitySystem.repository.UsersRepository;
+
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -50,4 +53,12 @@ public class UsersServiceImpl implements UsersService {
     public Object getUserById(int id) {
         return usersRepository.findById(id);
     }
+    
+    
+    public boolean authenticateUser(String username, String password) {
+        Optional<UsersModel> userOptional = usersRepository.findByUsernameAndPassword(username, password);
+
+        return userOptional.isPresent();
+    }
+
 }
